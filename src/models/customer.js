@@ -116,6 +116,7 @@ customerSchema.methods.toJSON = function() {
     return customerObject
 }
 
+
 const Customer = mongoose.model('Customer', customerSchema)
 module.exports = {
     Customer

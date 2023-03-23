@@ -37,8 +37,7 @@ const branchDetailsSchema = new mongoose.Schema({
     branchName: {
         type: String,
         required: true,
-        trim: true,
-        unique: true,
+        trim: true
     },
     branchCode: {
         type: Number,
@@ -58,10 +57,15 @@ const branchDetailsSchema = new mongoose.Schema({
 
 const accountSchema = new mongoose.Schema({
     accountNumber: {
-        type: String,
+        type: Number,
         required: true,
         trim: true,
         unique: true,
+    },
+    customerNumber: {
+        type: Number,
+        required: true,
+        trim: true
     },
     branchDetails: {
         type: branchDetailsSchema,
@@ -79,7 +83,7 @@ const accountSchema = new mongoose.Schema({
         trim: true
     },
     accountBalance: {
-        type: String,
+        type: Number,
         required: true,
         trim: true
     }
@@ -100,7 +104,7 @@ accountSchema.methods.toJSON = function () {
     return accountObject
 }
 
-const Accounts = mongoose.model('Account', accountSchema)
+const Accounts = mongoose.model('Accounts', accountSchema)
 module.exports = {
     Accounts
 }
